@@ -1,0 +1,18 @@
+[project]
+name = "technika11y-incident-disclosure-toolkit"
+version = "0.1.0a0"
+description = "Structures an incident-disclosure response: computes representative notification obligations + deadlines and renders advisory skeletons. Not legal advice."
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+keywords = ["incident-response", "breach-notification", "disclosure", "gdpr", "security"]
+
+[project.scripts]
+incident-disclosure = "disclosure.cli:main"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+packages = ["disclosure"]

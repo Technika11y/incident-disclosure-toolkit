@@ -1,0 +1,9 @@
+{
+  "type": "breach",
+  "personal_data": true,
+  "high_risk": true,
+  "jurisdictions": ["US", "EU"],
+  "affected_count": 1200,
+  "discovered_date": "2026-07-01",
+  "summary": "Unauthorized access to a customer database table containing names and emails."
+}
