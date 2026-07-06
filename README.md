@@ -15,6 +15,13 @@
 
 ---
 
+## Quick start
+
+```bash
+git clone https://github.com/technika11y/incident-disclosure-toolkit && cd incident-disclosure-toolkit
+PYTHONPATH=src python3 -m disclosure.cli obligations examples/incident.json
+```
+
 ## Status — read this first
 
 **Pre-alpha (`v0.1.0a0`). Honest state of the code:**
