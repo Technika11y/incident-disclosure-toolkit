@@ -45,6 +45,28 @@ def obligations(incident):
                 "Many states require notice to the AG above a threshold (commonly 500 residents).",
                 "US state breach-notification laws"))
 
+    # Sector regime — protected health information (HIPAA Breach Notification Rule).
+    # The 500-individual threshold changes both the recipient and the timing, so it is the
+    # branch that most often gets handled wrong under pressure.
+    if incident.get("phi"):
+        obs.append(_ob("hipaa-individuals", 60, "affected individuals",
+            "Notify affected individuals without unreasonable delay, and no later than 60 days "
+            "after discovery.",
+            "HIPAA 45 CFR 164.404"))
+        if count >= 500:
+            obs.append(_ob("hipaa-hhs-500", 60, "HHS Office for Civil Rights",
+                "500 or more individuals affected: notify HHS within 60 days of discovery.",
+                "HIPAA 45 CFR 164.408"))
+            obs.append(_ob("hipaa-media", 60, "prominent media in the affected jurisdiction",
+                "500 or more residents of a State or jurisdiction: notify prominent media outlets "
+                "within 60 days.",
+                "HIPAA 45 CFR 164.406"))
+        else:
+            obs.append(_ob("hipaa-hhs-annual", None, "HHS Office for Civil Rights",
+                "Fewer than 500 individuals: log the breach and submit to HHS annually, within 60 "
+                "days of the end of the calendar year.",
+                "HIPAA 45 CFR 164.408"))
+
     if incident.get("type") == "vulnerability":
         obs.append(_ob("coordinated-disclosure", 90, "reporter and public",
             "Coordinated disclosure: acknowledge the reporter, agree a timeline, publish by ~90 days.",

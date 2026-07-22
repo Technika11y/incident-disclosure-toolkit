@@ -32,9 +32,11 @@ PYTHONPATH=src python3 -m disclosure.cli obligations examples/incident.json
 | GDPR Art. 33 (72h authority) + Art. 34 (high-risk individuals) | ✅ works, tested |
 | US state breach notification + AG-threshold notice | ✅ works, tested |
 | Coordinated vulnerability disclosure (~90 day) timeline | ✅ works, tested |
+| **HIPAA** Breach Notification Rule — individuals (60d), HHS, and the 500-threshold media notice | ✅ works, tested |
 | Concrete deadline dates from `discovered_date` | ✅ works, tested |
+| Every obligation prints its legal basis (CFR / Article / statute) | ✅ works, tested |
 | Advisory skeleton renderer | ✅ works |
-| Exhaustive per-state / per-country rules, CCPA specifics, sector rules (HIPAA/GLBA) | ❌ not built — [roadmap](#roadmap) |
+| Exhaustive per-state / per-country rules, CCPA specifics, other sector rules (GLBA, PCI-DSS) | ❌ not built — [roadmap](#roadmap) |
 
 The rules are representative, not exhaustive — that limit is stated on every run and in this table.
 
@@ -61,7 +63,8 @@ PYTHONPATH=src python -m disclosure.cli advisory examples/incident.json
 ## Roadmap
 
 - [ ] Per-state US rules + CCPA/CPRA specifics
-- [ ] Sector regimes (HIPAA, GLBA, PCI-DSS reporting)
+- [x] Sector regime: HIPAA Breach Notification Rule
+- [ ] Further sector regimes (GLBA, PCI-DSS reporting)
 - [ ] Notification-letter templates per audience
 - [ ] Machine-readable output + the shared Technika11y CI gate
 

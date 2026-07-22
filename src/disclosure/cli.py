@@ -29,7 +29,8 @@ def main(argv=None):
                 print("no notification obligations triggered by the facts provided", file=sys.stderr)
             for o in obs:
                 by = f" (by {o['deadline_date']})" if o.get("deadline_date") else ""
-                print(f"[ ] {o['notify']}{by} — {o['message']}", file=sys.stderr)
+                # Always print the legal basis — an obligation you can't trace is not actionable.
+                print(f"[ ] {o['notify']}{by} — {o['message']} [{o['authority']}]", file=sys.stderr)
         return 0
 
     # advisory
